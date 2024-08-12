@@ -1,0 +1,27 @@
+<div class="main">
+  <h1>Register</h1>
+  <p>Please fill in this form to create an account.</p>
+  <form (ngSubmit)="register()">
+    <label for="first">Email:</label>
+    <input type="text" id="first" name="first" placeholder="Email" required [(ngModel)]="registration.email">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="Password" required [(ngModel)]="registration.password">
+
+    <label for="password">First Name:</label>
+    <input type="text" id="firstName" name="firstName" placeholder="First Name" required [(ngModel)]="registration.firstName">
+
+    <label for="password">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" placeholder="Last Name" required [(ngModel)]="registration.lastName">
+
+    <div class="wrap">
+      <button type="submit">Register</button>
+    </div>
+  </form>
+  <p>Already have an account?
+    <a href="/login"
+       style="text-decoration: none;">
+      Sign in
+    </a>
+  </p>
+</div>
