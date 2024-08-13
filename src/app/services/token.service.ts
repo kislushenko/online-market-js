@@ -9,7 +9,10 @@ export class TokenService {
   constructor() {}
 
   getToken(): string | null {
-    return localStorage.getItem(this.tokenKey);
+    if (typeof window !== 'undefined' && window.localStorage) {
+      return localStorage.getItem(this.tokenKey);
+    }
+    return null;
   }
 
   setToken(token: string): void {

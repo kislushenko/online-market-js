@@ -1,23 +1,19 @@
-import {ApplicationConfig, importProvidersFrom, Provider, provideZoneChangeDetection} from '@angular/core';
+import {ApplicationConfig, Provider, provideZoneChangeDetection} from '@angular/core';
 import {provideRouter, Routes} from '@angular/router';
 
 import {provideClientHydration} from '@angular/platform-browser';
 import {HomepageComponent} from "./homepage/homepage.component";
 import {LoginComponent} from "./login/login.component";
 import {RegistrationComponent} from "./registration/registration.component";
-import {
-  HTTP_INTERCEPTORS,
-  HttpClientModule,
-  provideHttpClient,
-  withFetch,
-  withInterceptorsFromDi
-} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 import {TokenInterceptor} from "./interceptors/token.interceptor";
+import {ProductListingPageComponent} from "./products/product-listing-page/product-listing-page.component";
 
 const appRoutes: Routes = [
   {path: "", component: HomepageComponent},
   {path: "login", component: LoginComponent},
   {path: "registration", component: RegistrationComponent},
+  {path: "products", component: ProductListingPageComponent},
 ];
 
 export const tokenInterceptorProvider: Provider =
