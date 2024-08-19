@@ -2,16 +2,16 @@
   <div class="product" *ngFor="let product of products">
     <div class="image-box">
       <div class="images">
-        <img src="./product.jpg">
+        <img src="./product.jpg" width="100%">
       </div>
     </div>
     <div class="text-box">
       <h2 class="item">{{ product.name }}</h2>
       <h3 class="price">${{ product.price }}</h3>
-      <p class="description">Product Code: {{ product.productCode }}</p>
+      <p class="description">Product Code: {{ product.code }}</p>
       <label for="item-1-quantity">Quantity:</label>
-      <input type="text" name="item-1-quantity" id="item-1-quantity" value="1">
-      <button type="button" name="item-1-button" id="item-1-button">Add to Cart</button>
+      <input type="number" name="item-1-quantity" id="item-1-quantity" [(ngModel)]="product.quantity" [defaultValue]="1" min="1" max="999">
+      <button type="button" name="item-1-button" id="item-1-button" (click)="placeOrder(product)">Add to Cart</button>
     </div>
   </div>
 </div>

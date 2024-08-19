@@ -1,5 +1,6 @@
 export class Product {
-  productCode: string = '';
+  code: string = '';
   name: string = '';
   price: number = 0.0;
+  quantity = 1;
 }

@@ -1,0 +1,34 @@
+<div class="cart-container">
+  <h1>Shopping Cart</h1>
+  <div *ngIf="!!cart && cart.items.length > 0; else emptyCart">
+  <table class="cart-table">
+    <thead>
+    <tr>
+      <th>Product Code</th>
+      <th>Product Name</th>
+      <th>Quantity</th>
+      <th>Base Price</th>
+      <th>Subtotal</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of cart.items">
+      <td>{{ item.product.code }}</td>
+      <td>{{ item.product.name }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>${{ item.basePrice}}</td>
+      <td>${{ item.totalPrice}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="total">
+    <h2>Total: ${{ cart.totalPrice }}</h2>
+  </div>
+
+  <button (click)="placeOrder()" class="place-order-button">Place Order</button>
+  </div>
+  <ng-template #emptyCart>
+    <h2>The cart is empty.</h2>
+  </ng-template>
+</div>
